@@ -1,0 +1,63 @@
+﻿@using System.Configuration;
+@{
+    Layout = null;
+}
+<!doctype html>
+<html ng-app="iqviaApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQVIA</title>
+    <link href="~/Client/styles/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Client/styles/bootstrap.icon-large.min.css" rel="stylesheet" />
+    <link href="~/Client/styles/bootstrap.min.css" rel="stylesheet" />
+
+    <link href="~/Client/styles/style.css" rel="stylesheet" />
+    <link href="~/Client/styles/browser.css" rel="stylesheet" />
+    <link href="~/Client/styles/jquery-ui.css" rel="stylesheet" />
+    <script>
+        var appConfig = appConfig || {};
+        appConfig = {
+            url: '@ConfigurationManager.AppSettings["ServiceUrl"]',
+            windowlocation: '@ConfigurationManager.AppSettings["WindowLocation"]'
+        };
+    </script>
+</head>
+<body>
+    <div>
+        <div ui-view></div>
+    </div>
+    <div id="LoadingImage" ng-if="showLoadImage" class="loadingIcon">
+        <img src="~/Client/images/loading.gif" />
+    </div>
+    <!-- Vendor scripts -->
+    <script src="~/Vendor/jquery.min.js"></script>
+    <script src="~/Vendor/bootstrap.min.js"></script>
+    <script src="~/Vendor/jquery-ui.js"></script>
+
+    <script src="~/Vendor/angular.min.js"></script>
+    <script src="~/Vendor/angular-ui-router.min.js"></script>
+    <script src="~/Vendor/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="~/Vendor/angular-cookies.min.js"></script>
+    <script src="~/Vendor/angular-animate.min.js"></script>
+    <script src="~/Vendor/lodash.min.js"></script>
+
+    <!--Main Module i.e. app-->
+    <script src="~/Client/app/app.js"></script>
+
+    <!-- APP: CONSTANT -->
+    <script src="~/Client/app/constants/AppConstants.js"></script>
+    <script src="~/Client/app/constants/NavigatePath.js"></script>
+    <script src="~/Client/app/constants/ViewPath.js"></script>
+
+    <!-- APP: SERVICES -->
+    <script src="~/Client/app/services/ApiService.js"></script>
+    <script src="~/Client/app/services/tweetsService.js"></script>
+
+    <!-- APP: CONTROLLER -->
+    <script src="~/Client/app/controllers/tweetsController.js"></script>
+
+    <!-- APP: DIRECTIVE -->
+    <script src="~/Client/app/directives/datepicker.js"></script>
+</body>
+</html>

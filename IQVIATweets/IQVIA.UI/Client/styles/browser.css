@@ -1,0 +1,18 @@
+﻿/* Firefox */
+@-moz-document url-prefix() {
+    .filterSelectBox {
+        padding: 0;
+        border:0;
+        background: none;
+        width:17px;
+    }
+}
+
+
+/* IE - 11  */
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    .filterSelectBox {
+        padding: 0 24px 0 0;
+    }
+    
+}

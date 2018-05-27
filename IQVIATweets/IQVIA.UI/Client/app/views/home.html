@@ -1,0 +1,45 @@
+﻿<div ng-controller="tweetsCtrl">
+    <div>
+        <form name="tweetsInformation" ng-submit="getTweetsInfo()" novalidate>
+            <h1 style="text-align:center">IQVIA Get Tweets</h1>
+            <h3 style="text-align:center; color:red">[Developed by Gaurav Bhardwaj]</h3>
+            <div class="form-group">
+                <label class="col-md-2">Start Date :</label>
+                <div class="col-md-4"><input type="text" ng-disabled="false" class="form-control" ng-model="tweetsInfo.startDate" id="startdate" jqdatepicker /></div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-2">End Date :</label>
+                <div class="col-md-4"><input type="text" ng-disabled="false" class="form-control" ng-model="tweetsInfo.endDate" id="enddate" jqdatepicker /></div>
+                <button class="btn btn-primary btn-next pull-left" type="submit">Get Tweets</button>
+                <div class="clearfix"></div>
+            </div>
+
+            <div class="form-group" ng-show="showTable">
+                View <select ng-model="viewby" ng-change="setItemsPerPage(viewby)" ng-options="value for value in options"></select> records at a time.
+
+                <div style="text-align:left" uib-pagination total-items="totalItems" ng-model="currentPage" ng-change="pageChanged()" class="pagination-sm" items-per-page="itemsPerPage"></div>
+                <hr />
+                <pre> Total records: {{totalItems}}</pre>
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Stamp</th>
+                            <th>Tweet Text</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="tweet in tweets.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))">
+                            <td>{{tweet.id}}</td>
+                            <td>{{tweet.stamp}}</td>
+                            <td>{{tweet.text}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </div>
+        </form>
+    </div>
+</div>

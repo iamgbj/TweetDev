@@ -1,0 +1,14 @@
+*.obj
+[Bb]in
+[Db]ebug*/
+obj/
+[Rr]elease*/
+*/*/App_Data/TEMP/
+packages/
+*/*/App_Data/Logs/
+*/*/App_Data/NugetBackup/
+*.dbmdl
+*.orig
+*.user
+*.suo
+.vs/
